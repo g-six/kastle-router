@@ -1,11 +1,10 @@
 {
-    "version": "^3.5.3",
-    "compilerOptions": {
-        "module": "commonjs",
-        "declaration": true,
-        "outDir": "lib/"
-    },
-    "files": [
-        "./src/index.ts"
-    ]
+  "version": "^3.5.3",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "lib/"
+  },
+  "files": ["./src/index.ts"]
 }

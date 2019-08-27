@@ -1,7 +1,7 @@
 {
   "name": "@g-six/kastle-router",
-  "version": "0.1.1",
-  "description": "Yeah, like the Swiss knife.",
+  "version": "0.1.2",
+  "description": "Kastle Middleware",
   "main": "lib/index.js",
   "typings": "lib/index",
   "files": [
