@@ -1,0 +1,3 @@
+*.test.ts
+*.config.js
+node_modules/

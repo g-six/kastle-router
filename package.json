@@ -1,0 +1,74 @@
+{
+  "name": "@g-six/swiss-knife",
+  "version": "0.1.0",
+  "description": "Yeah, like the Swiss knife.",
+  "main": "lib/index.js",
+  "typings": "lib/index",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "rimraf ./lib && tsc",
+    "commit": "git-cz",
+    "lint": "pretty-quick && eslint 'src/**/*.ts' --fix",
+    "test": "jest --maxWorkers=1 --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-six/swiss.git"
+  },
+  "keywords": [
+    "g-six",
+    "idearobin",
+    "utility",
+    "typescript",
+    "joi"
+  ],
+  "author": "g-six",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g-six/swiss/issues"
+  },
+  "homepage": "https://github.com/g-six/swiss#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/hapi__joi": "^15.0.3",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.137",
+    "@types/node": "^12.7.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "commitlint": "^8.1.0",
+    "eslint": "^6.2.2",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "git-cz": "^3.2.1",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "lodash": "^4.17.15"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(j|t)s": [
+      "eslint --fix",
+      "pretty-quick --fix",
+      "git add"
+    ]
+  }
+}
