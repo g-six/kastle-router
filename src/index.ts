@@ -44,7 +44,7 @@ const lambdaMiddleware = (handler: Function) => async (ctx: BaseContext) => {
 
   const body = JSON.parse(sls_body)
 
-  ctx.body = pick(body, ['message', 'data', 'status'])
+  ctx.body = pick(body, ['message', 'data', 'records', 'record', 'status'])
   ctx.status = statusCode
 }
 
