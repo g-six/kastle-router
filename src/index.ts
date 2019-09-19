@@ -44,8 +44,22 @@ const lambdaMiddleware = (handler: Function) => async (ctx: BaseContext) => {
 
   const body = JSON.parse(sls_body)
 
-  ctx.body = pick(body, ['message', 'data', 'records', 'record', 'status'])
+  ctx.body = pick(body, [
+    'message',
+    'data',
+    'error',
+    'errors',
+    'records',
+    'record',
+    'status',
+  ])
   ctx.status = statusCode
+}
+
+const KastleResponseHeaders = {
+  'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+  'Access-Control-Expose-Headers': 'kasl-key',
+  'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
 }
 
 export {
@@ -57,6 +71,7 @@ export {
   KastlePayloadError,
   KastleResponse,
   KastleResponseBody,
+  KastleResponseHeaders,
   KastleRoute,
   KastleRouter,
   KastleRoutes,
