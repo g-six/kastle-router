@@ -42,17 +42,21 @@ const lambdaMiddleware = (handler: Function) => async (ctx: BaseContext) => {
 
   ctx.set(headers as {})
 
-  const body = JSON.parse(sls_body)
+  try {
+    const body = JSON.parse(sls_body)
+    ctx.body = pick(body, [
+      'message',
+      'data',
+      'error',
+      'errors',
+      'records',
+      'record',
+      'status',
+    ])
+  } catch {
+    ctx.body = sls_body
+  }
 
-  ctx.body = pick(body, [
-    'message',
-    'data',
-    'error',
-    'errors',
-    'records',
-    'record',
-    'status',
-  ])
   ctx.status = statusCode
 }
 
