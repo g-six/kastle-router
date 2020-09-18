@@ -35,4 +35,28 @@ describe('lambdaHandler', () => {
 
     expect(spyHandler).toHaveBeenCalled()
   })
+
+  it('should process file request and set response body and headers accordingly', () => {
+    const ctx = ({
+      body: {},
+      headers: {},
+      params: {},
+      request: {
+        body: {},
+        headers: {},
+        method: MethodTypes.Get,
+        query: {},
+      },
+      set: jest.fn(),
+    } as unknown) as BaseContext
+
+    const spyHandler = jest.fn(() => ({
+      body: new Buffer('Test').toString('base64'),
+      headers: {},
+      statusCode: 200,
+    }))
+    lambdaMiddleware(spyHandler)(ctx)
+
+    expect(spyHandler).toHaveBeenCalled()
+  })
 })
